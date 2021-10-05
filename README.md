@@ -21,6 +21,25 @@ tensorflow  1.15
 
 - Store the data (.gml files) in the `graphs_dataset/APKICFG` folder.
 - `graphs_dataset` folder should contain `APKICFG` folder and `APKICFG.Labels` file (contains labels for the graph).
+
+
+If you would like to experiment with the configuration of the dataset shown in the [thesis](https://etd.ohiolink.edu/apexprod/rws_olink/r/1501/10?clear=10&p10_accession_num=bgsu1617199500076786), setup the test files by:
+- Placing name of the apps from 2018_q1 in `dataset_utils/test_file_1.txt`.
+- Placing name of the apps from 2018_q2 in `dataset_utils/test_file_2.txt`.
+-	Placing name of the apps from 2018_q1 and 2018_q2 to `dataset_utils/test_file_names.txt`.
+
+We do this because test set consists of data from 2018_q1 and 2018_q2.
+
+*Reminder:* all the files needs to be stored in `graphs_dataset/APKICFG` folder. 
+The script filters out the test files to create the training set.
+
+**OR**
+
+If you would like to run the code with a dummy dataset (i.e 200 graphs currently in graph_dataset folder):
+- Pick some random apps' name from the dataset place in `dataset_utils/test_file_1.txt` (One per each line).
+- Pick some other random apps' name place from the dataset and place in `dataset_utils/test_file_2.txt`.
+-	Combine the above two files to `dataset_utils/test_file_names.txt`.
+
 -	To run the preprocessing code. You need to run preprocessing.py (inside dataset_utils) from that parent folder.
 
 ```
@@ -30,9 +49,7 @@ tensorflow  1.15
 
 #### Training model
 
-- Place name of the apps from 2018_q1 in `dataset_utils/test_file_1.txt`.
-- Place name of the apps from 2018_q2 in `dataset_utils/test_file_2.txt`.
--	Place name of the apps from 2018_q1 and 2018_q2 to `dataset_utils/test_file_names.txt`.
+
 
 All the hyperparameters can be set in `config.py`. Training a model by using default configs:
 ```
